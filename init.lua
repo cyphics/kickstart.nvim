@@ -146,7 +146,7 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
