@@ -57,7 +57,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         -- },
         pickers = {
           find_files = {
-
             find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
           },
         },
@@ -78,6 +77,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      vim.keymap.set('n', '<leader>sls', builtin.lsp_document_symbols, { desc = '[L]SP Document [Symbols]' })
+      vim.keymap.set('n', '<leader>sld', builtin.lsp_definitions, { desc = '[L]SP [D]efintions' })
+      vim.keymap.set('n', '<leader>sli', builtin.lsp_implementations, { desc = '[L]SP [I]mplementations' })
+      vim.keymap.set('n', '<leader>slr', builtin.lsp_references, { desc = '[L]SP [R]eferences' })
+      vim.keymap.set('n', '<leader>slt', builtin.lsp_type_definitions, { desc = '[L]SP [T]ypes definitions' })
+      vim.keymap.set('n', '<leader>ss', builtin.lsp_definitions, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })

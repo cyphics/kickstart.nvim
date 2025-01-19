@@ -1,4 +1,5 @@
 -- [[ Configure and install plugins ]]
+-- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
 --    :Lazy
@@ -157,15 +158,16 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'catppuccin/nvim',
-    -- 'ellisonleao/gruvbox.nvim',
+    -- 'catppuccin/nvim',
+    'ellisonleao/gruvbox.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.o.background = 'dark'
-      vim.cmd.colorscheme 'catppuccin'
+      -- vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.cmd.colorscheme 'gruvbox'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
@@ -196,6 +198,11 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      require('mini.comment').setup {
+        mappings = {
+          comment_line = '<C-/>',
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -215,6 +222,14 @@ require('lazy').setup({
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
+    {
+      'jiaoshijie/undotree',
+      dependencies = 'nvim-lua/plenary.nvim',
+      config = true,
+      keys = { -- load the plugin only when using it's keybinding:
+        { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
+      },
+    },
   },
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

@@ -5,6 +5,17 @@ return { -- Highlight, edit, and navigate code
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<CR>',
+          -- node_incremental = 'grn',
+          -- node_decremental = 'grm',
+          node_incremental = '<C-g>',
+          node_decremental = '<C-r>',
+          scope_incremental = 'grc',
+        },
+      },
       ensure_installed = {
         'bash',
         'typescript',
@@ -19,6 +30,7 @@ return { -- Highlight, edit, and navigate code
         'vim',
         'vimdoc',
         'go',
+        'zig',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -31,6 +43,7 @@ return { -- Highlight, edit, and navigate code
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
