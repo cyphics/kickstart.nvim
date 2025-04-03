@@ -31,18 +31,6 @@ return {
     'danymat/neogen',
     config = true,
   },
-  {
-    'nocksock/do.nvim',
-    opts = {
-      winbar = true,
-      kaomoji_mode = 1,
-      doing_prefix = 'Current task: ',
-      store = {
-        auto_create_file = true,
-        file_name = '.do_tasks',
-      },
-    },
-  },
   { -- This plugin
     'Zeioth/compiler.nvim',
     cmd = { 'CompilerOpen', 'CompilerToggleResults', 'CompilerRedo' },
