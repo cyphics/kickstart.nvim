@@ -1,95 +1,12 @@
--- [[ Configure and install plugins ]]
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-   {
-    "folke/trouble.nvim",
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-    cmd = "Trouble",
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-    },
-  },
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-fugitive',
+  require('kickstart/plugins/trouble'),
+  --  require('kickstart/plugins/harpoon'),
+  require('kickstart/plugins/todo-comments'),
+  require('kickstart/plugins/undo-tree'),
 
-  {
-    'ThePrimeagen/vim-be-good',
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      local harpoon = require 'harpoon'
-      harpoon:setup()
 
-      vim.keymap.set('n', '<C-a>', function()
-        harpoon:list():add()
-      end)
-      vim.keymap.set('n', '<C-e>', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
-      end)
-
-      vim.keymap.set('n', '<C-1>', function()
-        harpoon:list():select(1)
-      end)
-      vim.keymap.set('n', '<C-2>', function()
-        harpoon:list():select(2)
-      end)
-      vim.keymap.set('n', '<C-3>', function()
-        harpoon:list():select(3)
-      end)
-      vim.keymap.set('n', '<C-4>', function()
-        harpoon:list():select(4)
-      end)
-
-      -- Toggle previous & next buffers stored within Harpoon list
-      vim.keymap.set('n', '<C-S-P>', function()
-        harpoon:list():prev()
-      end)
-      vim.keymap.set('n', '<C-S-N>', function()
-        harpoon:list():next()
-      end)
-    end,
-  },
   -- {
   -- 	"nvim-tree/nvim-tree.lua",
   -- 	version = "*",
@@ -140,7 +57,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -186,7 +103,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -239,13 +156,6 @@ require('lazy').setup({
     end,
   },
 
-  -- Highlight todo, notes, etc in comments
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = { signs = false },
-  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -288,14 +198,6 @@ require('lazy').setup({
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
-    {
-      'jiaoshijie/undotree',
-      dependencies = 'nvim-lua/plenary.nvim',
-      config = true,
-      keys = { -- load the plugin only when using it's keybinding:
-        { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
-      },
-    },
   },
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
