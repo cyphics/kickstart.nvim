@@ -151,6 +151,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = { 'html', 'shtml', 'htm' },
+  callback = function()
+    vim.lsp.start {
+      name = 'superhtml',
+      cmd = { 'superhtml', 'lsp' },
+      root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+    }
+  end,
+})
 require 'custom.plugins'
 require 'kickstart.plugins.lazy-plugins'
 -- require 'kickstart.plugins.lualine'
