@@ -2,23 +2,26 @@ return { -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    event = {"BufReadPre", "BufNewFile"},
+    dependencies = { 
+      "nvim-treesitter/nvim-treesitter-textobjects"
+    },
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = '<CR>',
-          -- node_incremental = 'grn',
-          -- node_decremental = 'grm',
-          node_incremental = '<C-g>',
-          node_decremental = '<C-r>',
-          scope_incremental = 'grc',
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
+          node_decremental = '<bs>',
+          scope_incremental = false,
         },
       },
       ensure_installed = {
         'bash',
         'typescript',
+        'javascript',
         'c',
         'diff',
         'html',

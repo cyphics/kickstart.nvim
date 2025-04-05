@@ -17,6 +17,24 @@ require('lazy').setup( {
       ft = { "markdown" },
       build = function() vim.fn["mkdp#util#install"]() end,
   },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    -- Optional dependency
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require('nvim-autopairs').setup {}
+      -- If you want to automatically add `(` after selecting a function or method
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp = require 'cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+      -- Basically only enable it for {}
+      require("nvim-autopairs").remove_rule('(')
+      require("nvim-autopairs").remove_rule('[')
+      require("nvim-autopairs").remove_rule('"')
+      require("nvim-autopairs").remove_rule("'")
+    end,
+  },
     -- 'beautifier/js-beautify',
     -- 'sbdchd/neoformat',
    {"codethread/qmk.nvim",
@@ -54,9 +72,26 @@ require('lazy').setup( {
 
   {"folke/noice.nvim"},
     {'folke/trouble.nvim',
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {
+
+    }, -- for default options, refer to the configuration section for custom setup.
   cmd = 'Trouble',
   keys = {
+    modes = {
+      preview_float = {
+        mode = "diagnostics",
+        preview = {
+          type = "float",
+          relative = "editor",
+          border = "rounded",
+          title = "Preview",
+          title_pos = "center",
+          position = { 0, -2 },
+          size = { width = 0.3, height = 0.3 },
+          zindex = 200,
+        },
+      },
+    },
     {
       '<leader>xx',
       '<cmd>Trouble diagnostics toggle<cr>',
@@ -350,7 +385,6 @@ require('lazy').setup( {
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.autocomplete',
   require 'kickstart.plugins.treesitter',
   -- require 'kickstart.plugins.conform',
