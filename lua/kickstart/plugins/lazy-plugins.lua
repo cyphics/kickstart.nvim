@@ -1,4 +1,83 @@
-require('lazy').setup({
+require('lazy').setup( {
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+  },
+    -- 'beautifier/js-beautify',
+    -- 'sbdchd/neoformat',
+   {"codethread/qmk.nvim",
+    opts = {
+    name = 'LAYOUT_planck_grid', -- identify your layout name
+        comment_preview = {
+            keymap_overrides = {
+                KC_BTN1 = 'R-Clic',
+                KC_BTN2 = 'L-Click',
+                KC_BTN3 = 'M-Click',
+                KC_BTN4 = 'Prev',
+                KC_BTN5 = 'Next',
+                QK_MOUSE_ACCELERATION_0 = 'Mouse Acc 1',
+                QK_MOUSE_ACCELERATION_1 = 'Mouse Acc 2',
+                QK_MOUSE_ACCELERATION_2 = 'Mouse Acc 3',
+                KC_UP = '^',
+                KC_DOWN = 'v',
+                KC_LEFT = '<',
+                KC_RIGHT = '>',
+                E_GRAV = 'è',
+                E_ACUT = 'é',
+                A_GRAV = 'à',
+                CEDILL = 'ç',
+
+            },
+        },
+        layout = { -- create a visual representation of your final layout
+                'x x x x x x x x x x x x',
+                'x x x x x x x x x x x x',
+                'x x x x x x x x x x x x',
+                'x x x x x x x x x x x x',
+        },
+    }
+  },
+
+  {"folke/noice.nvim"},
+    {'folke/trouble.nvim',
+  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  cmd = 'Trouble',
+  keys = {
+    {
+      '<leader>xx',
+      '<cmd>Trouble diagnostics toggle<cr>',
+      desc = 'Diagnostics (Trouble)',
+    },
+    {
+      '<leader>xX',
+      '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+      desc = 'Buffer Diagnostics (Trouble)',
+    },
+    {
+      '<leader>cs',
+      '<cmd>Trouble symbols toggle focus=false<cr>',
+      desc = 'Symbols (Trouble)',
+    },
+    {
+      '<leader>cl',
+      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      desc = 'LSP Definitions / references / ... (Trouble)',
+    },
+    {
+      '<leader>xL',
+      '<cmd>Trouble loclist toggle<cr>',
+      desc = 'Location List (Trouble)',
+    },
+    {
+      '<leader>xQ',
+      '<cmd>Trouble qflist toggle<cr>',
+      desc = 'Quickfix List (Trouble)',
+    },
+  },
+},
+  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-fugitive',
   require('kickstart/plugins/trouble'),
@@ -210,15 +289,15 @@ require('lazy').setup({
   --
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.lint',
+  -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.autocomplete',
   require 'kickstart.plugins.treesitter',
-  require 'kickstart.plugins.conform',
+  -- require 'kickstart.plugins.conform',
   require 'kickstart.plugins.lsp',
   require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

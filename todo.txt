@@ -1,0 +1,3 @@
+- Show error under cursor in minibuffer (lualine?)
+- Sort between Telescope and LSP
+- Find good formatter
