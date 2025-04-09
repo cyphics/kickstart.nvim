@@ -143,6 +143,7 @@ return {
         -- gopls = {},
         pyright = {},
         rust_analyzer = {},
+        -- typescript-tools = {},
         -- zls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -150,7 +151,7 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
@@ -217,6 +218,21 @@ return {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
+    config = function()
+      require("typescript-tools").setup {
+        on_attach =
+            function(client, bufnr)
+              client.server_capabilities.documentFormattingProvider = false
+              client.server_capabilities.documentRangeFormattingProvider = false
+            end,
+        settings = {
+          jsx_close_tag = {
+            enable = true,
+            filetypes = { "javascriptreact", "typescriptreact" },
+          }
+        }
+      }
+    end   
   },
   { 'ziglang/zig.vim' },
 }
