@@ -1,4 +1,5 @@
 - Show error under cursor in minibuffer (lualine?)
+- show error inline (seems to work sometimes, i.e. with Typescript)
 - Sort between Telescope and LSP
 - Find good formatter
 - Restructure project

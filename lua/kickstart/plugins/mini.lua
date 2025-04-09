@@ -18,7 +18,10 @@
       require('mini.surround').setup()
       require('mini.comment').setup {
         mappings = {
-          comment_line = '<C-/>',
+          comment = '<C-_>',
+          comment_line = '<C-_>',
+          comment_visual = '<C-_>',
+          textobject = '<C-_>',
         },
       }
 
