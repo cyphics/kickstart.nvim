@@ -10,7 +10,7 @@ require('lazy').setup( {
 
   require 'kickstart.plugins.autocomplete',
   require 'kickstart.plugins.autopairs', -- auto-close {}
-  -- require 'kickstart.plugins.conform',
+  require 'kickstart.plugins.conform',
   require 'kickstart.plugins.debug', -- debug stuff, mainly dap
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   -- require 'kickstart.plugins.harpoon',
