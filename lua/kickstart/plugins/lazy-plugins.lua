@@ -22,6 +22,7 @@ require('lazy').setup( {
   require 'kickstart.plugins.qmk', -- keyboard firmware code formatter
   require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.treesitter',
+  require 'kickstart.plugins.treesitter-textobjects',
   require('kickstart/plugins/trouble'),
   require('kickstart/plugins/todo-comments'),
   require('kickstart/plugins/undo-tree'),
