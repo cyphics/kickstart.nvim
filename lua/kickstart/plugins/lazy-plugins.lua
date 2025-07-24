@@ -7,6 +7,14 @@ require('lazy').setup( {
   'tpope/vim-fugitive',
     -- 'beautifier/js-beautify',
     -- 'sbdchd/neoformat',
+  { 'norcalli/nvim-colorizer.lua', opts =  {
+      'css';
+      'javascript';
+      html = {
+        mode = 'foreground';
+      }
+    }
+  },
 
   require 'kickstart.plugins.autocomplete',
   require 'kickstart.plugins.autopairs', -- auto-close {}
