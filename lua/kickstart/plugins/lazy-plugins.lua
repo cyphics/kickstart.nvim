@@ -31,7 +31,7 @@ require('lazy').setup( {
   require 'kickstart.plugins.telescope',
   require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.treesitter-textobjects',
-  require('kickstart/plugins/trouble'),
+  -- require('kickstart/plugins/trouble'),
   require('kickstart/plugins/todo-comments'),
   require('kickstart/plugins/undo-tree'),
   require('kickstart/plugins/which-key'), -- show pending keybindings
@@ -41,19 +41,6 @@ require('lazy').setup( {
   {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  },
-  -- LSP Plugins
-  {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-      },
-    },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
 

@@ -206,35 +206,50 @@ return {
       }
     end,
   },
-  {
-    'antosha417/nvim-lsp-file-operations',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-neo-tree/neo-tree.nvim',
-    },
-    config = function()
-      require('lsp-file-operations').setup()
-    end,
-  },
   -- {
-  --   'pmizio/typescript-tools.nvim',
-  --   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-  --   opts = {},
-  --   config = function()
-  --     require("typescript-tools").setup {
-  --       on_attach =
-  --           function(client, bufnr)
-  --             client.server_capabilities.documentFormattingProvider = false
-  --             client.server_capabilities.documentRangeFormattingProvider = false
-  --           end,
-  --       settings = {
-  --         jsx_close_tag = {
-  --           enable = true,
-  --           filetypes = { "javascriptreact", "typescriptreact" },
-  --         }
-  --       }
-  --     }
-  --   end   
+  --   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+  --   -- used for completion, annotations and signatures of Neovim apis
+  --   'folke/lazydev.nvim',
+  --   ft = 'lua',
+  --   opts = {
+  --     library = {
+  --       -- Load luvit types when the `vim.uv` word is found
+  --       { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+  --     },
+  --   },
   -- },
-  { 'ziglang/zig.vim' },
+  -- {
+  --   'antosha417/nvim-lsp-file-operations',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-neo-tree/neo-tree.nvim',
+  --   },
+  --   config = function()
+  --     require('lsp-file-operations').setup()
+  --   end,
+  -- },
+  -- -- {
+  -- --   'pmizio/typescript-tools.nvim',
+  -- --   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+  -- --   opts = {},
+  -- --   config = function()
+  -- --     require("typescript-tools").setup {
+  -- --       on_attach =
+  -- --           function(client, bufnr)
+  -- --             client.server_capabilities.documentFormattingProvider = false
+  -- --             client.server_capabilities.documentRangeFormattingProvider = false
+  -- --           end,
+  -- --       settings = {
+  -- --         jsx_close_tag = {
+  -- --           enable = true,
+  -- --           filetypes = { "javascriptreact", "typescriptreact" },
+  -- --         }
+  -- --       }
+  -- --     }
+  -- --   end   
+  -- -- },
+  -- { 'ziglang/zig.vim' },
+  -- { 'ErichDonGubler/lsp_lines.nvim', opts = {
+  --   virtual_lines = true
+  -- }}
 }
