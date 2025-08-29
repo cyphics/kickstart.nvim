@@ -206,6 +206,18 @@ return {
     end,
   },
   {
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- used for completion, annotations and signatures of Neovim apis
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  {
     'antosha417/nvim-lsp-file-operations',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -236,4 +248,10 @@ return {
   --   end   
   -- },
   { 'ziglang/zig.vim' },
+  { 'ErichDonGubler/lsp_lines.nvim', opts = {
+    virtual_lines = true,
+    -- local lines = require 'lsp_lines'
+    --   -- map('<leader>tt',  open_with_trouble, 'bla' )
+    -- map('<leader>sh',  lines, '[S]earch [H]elp')
+  }}
 }

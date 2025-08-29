@@ -7,45 +7,21 @@ require('lazy').setup( {
   'tpope/vim-fugitive',
     -- 'beautifier/js-beautify',
     -- 'sbdchd/neoformat',
+  { 'norcalli/nvim-colorizer.lua', opts =  {
+      'css';
+      'javascript';
+      html = {
+        mode = 'foreground';
+      }
+    }
+  },
 
-  require 'kickstart.plugins.autocomplete',
-  require 'kickstart.plugins.autopairs', -- auto-close {}
-  require 'kickstart.plugins.conform',
-  require 'kickstart.plugins.debug', -- debug stuff, mainly dap
-  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  -- require 'kickstart.plugins.harpoon',
-  require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.lsp',
-  require 'kickstart.plugins.mini',
-  require 'kickstart.plugins.neo-tree', -- file explorer
-  require 'kickstart.plugins.qmk', -- keyboard firmware code formatter
-  require 'kickstart.plugins.telescope',
-  require 'kickstart.plugins.treesitter',
-  require 'kickstart.plugins.treesitter-textobjects',
-  require('kickstart/plugins/trouble'),
-  require('kickstart/plugins/todo-comments'),
-  require('kickstart/plugins/undo-tree'),
-  require('kickstart/plugins/which-key'), -- show pending keybindings
 
   -- NOTE: Plugins can specify dependencies.
   --
   {
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  },
-  -- LSP Plugins
-  {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-      },
-    },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
 
@@ -64,7 +40,6 @@ require('lazy').setup( {
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.o.background = 'dark'
       -- vim.cmd.colorscheme 'catppuccin-macchiato'
-      vim.cmd.colorscheme 'gruvbox'
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,

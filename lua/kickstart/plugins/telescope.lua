@@ -48,7 +48,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       require('telescope').load_extension 'file_browser'
 
       local actions = require('telescope.actions')
-      local open_with_trouble = require("trouble.sources.telescope").open
+      -- local open_with_trouble = require("trouble.sources.telescope").open
 
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
@@ -58,7 +58,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         defaults = {
           mappings = {
             -- i = { ['<c-t>'] = open_with_trouble },
-            -- n = { ['<c-t>'] = open_with_trouble },
+            -- n = { ['<leader>tt>'] = open_with_trouble },
           },
         },
 
@@ -87,6 +87,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       end
       --`:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      -- map('<leader>tt',  open_with_trouble, 'bla' )
       map('<leader>sh',  builtin.help_tags, '[S]earch [H]elp')
       map('<leader>sk',  builtin.keymaps, '[S]earch [K]eymaps')
       map('<leader>sf',  builtin.find_files, '[S]earch [F]iles')

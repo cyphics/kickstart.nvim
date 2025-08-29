@@ -10,9 +10,9 @@ return  {
       local cmp = require 'cmp'
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
       -- Basically only enable it for {}
-      require("nvim-autopairs").remove_rule('(')
-      require("nvim-autopairs").remove_rule('[')
-      require("nvim-autopairs").remove_rule('"')
-      require("nvim-autopairs").remove_rule("'")
+      -- require("nvim-autopairs").remove_rule('(')
+      -- require("nvim-autopairs").remove_rule('[')
+      -- require("nvim-autopairs").remove_rule('"')
+      -- require("nvim-autopairs").remove_rule("'")
     end,
   }
