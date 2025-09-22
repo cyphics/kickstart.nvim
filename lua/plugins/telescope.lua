@@ -45,7 +45,7 @@ return {
     { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
     { "<leader>fF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Find Files (git-files)" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>fs", "<cmd>Telescope oldfiles<cr>", desc = "recent" },
     { "<leader>fR", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), desc = "Recent (cwd)" },
     -- git
     { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
