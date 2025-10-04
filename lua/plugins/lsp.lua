@@ -93,6 +93,66 @@ return {
         ---@alias lazyvim.lsp.Config vim.lsp.Config|{mason?:boolean, enabled?:boolean}
         ---@type table<string, lazyvim.lsp.Config|boolean>
         servers = {
+
+          -- pyright = {},
+          basedpyright = {
+            settings = {
+              basedpyright = {
+                disableOrganizeImports = true,
+                analysis = {
+                  diagnosticSeverityOverrides = {
+                    reportUnusedImport = "none",
+                  },
+                },
+              },
+            },
+          },
+          ruff = {
+            cmd_env = { RUFF_TRACE = "messages" },
+            init_options = {
+              settings = {
+                logLevel = "error",
+                args = {
+                  "--ignore",
+                  "F821",
+                  "--ignore",
+                  "E402",
+                  "--ignore",
+                  "E722",
+                  "--ignore",
+                  "E712",
+                },
+              },
+            },
+            keys = {
+              {
+                "<leader>co",
+                LazyVim.lsp.action["source.organizeImports"],
+                desc = "Organize Imports",
+              },
+            },
+          },
+          ruff_lsp = {
+            keys = {
+              {
+                "<leader>co",
+                LazyVim.lsp.action["source.organizeImports"],
+                desc = "Organize Imports",
+              },
+            },
+          },
+          --- @deprecated -- tsserver renamed to ts_ls but not yet released, so keep this for now
+          --- the proper approach is to check the nvim-lspconfig release version when it's released to determine the server name dynamically
+          tsserver = {
+            enabled = false,
+          },
+          ts_ls = {
+            enabled = false,
+          },
+          tailwindcss = {
+            filetypes_exclude = { "markdown" },
+            filetypes_include = {},
+          },
           stylua = { enabled = false },
           lua_ls = {
             -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -331,65 +391,6 @@ return {
     -- opts = {
     --   -- make sure mason installs the server
     --   servers = {
-    --     -- pyright = {},
-    --     basedpyright = {
-    --       settings = {
-    --         basedpyright = {
-    --           disableOrganizeImports = true,
-    --           analysis = {
-    --             diagnosticSeverityOverrides = {
-    --               reportUnusedImport = "none",
-    --             },
-    --           },
-    --         },
-    --       },
-    --     },
-    --     ruff = {
-    --       cmd_env = { RUFF_TRACE = "messages" },
-    --       init_options = {
-    --         settings = {
-    --           logLevel = "error",
-    --           args = {
-    --             "--ignore",
-    --             "F821",
-    --             "--ignore",
-    --             "E402",
-    --             "--ignore",
-    --             "E722",
-    --             "--ignore",
-    --             "E712",
-    --           },
-    --         },
-    --       },
-    --       keys = {
-    --         {
-    --           "<leader>co",
-    --           LazyVim.lsp.action["source.organizeImports"],
-    --           desc = "Organize Imports",
-    --         },
-    --       },
-    --     },
-    --     ruff_lsp = {
-    --       keys = {
-    --         {
-    --           "<leader>co",
-    --           LazyVim.lsp.action["source.organizeImports"],
-    --           desc = "Organize Imports",
-    --         },
-    --       },
-    --     },
-    --     --- @deprecated -- tsserver renamed to ts_ls but not yet released, so keep this for now
-    --     --- the proper approach is to check the nvim-lspconfig release version when it's released to determine the server name dynamically
-    --     tsserver = {
-    --       enabled = false,
-    --     },
-    --     ts_ls = {
-    --       enabled = false,
-    --     },
-    --     tailwindcss = {
-    --       filetypes_exclude = { "markdown" },
-    --       filetypes_include = {},
-    --     },
     --   },
     -- },
   },
