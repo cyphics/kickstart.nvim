@@ -98,7 +98,7 @@ return {
           basedpyright = {
             settings = {
               basedpyright = {
-                disableOrganizeImports = true,
+                -- disableOrganizeImports = true,
                 analysis = {
                   diagnosticSeverityOverrides = {
                     reportUnusedImport = "none",
@@ -208,6 +208,7 @@ return {
 
       -- setup keymaps
       LazyVim.lsp.on_attach(function(client, buffer)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
         require("lazyvim.plugins.lsp.keymaps").on_attach(client, buffer)
       end)
 

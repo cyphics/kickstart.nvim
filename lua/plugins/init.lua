@@ -23,7 +23,7 @@ return {
     opts = {
       picker_integration = true,
       keymaps = {
-        prefix = "<leader>x", -- Main prefix for uv commands
+        prefix = "<leader>m", -- Main prefix for uv commands
         commands = true, -- Show uv commands menu (<leader>x)
         run_file = true, -- Run current file (<leader>xr)
         run_selection = true, -- Run selected code (<leader>xs)
@@ -36,15 +36,15 @@ return {
         sync_all = true, -- Sync all packages, extras and groups (<leader>xC)
       },
     },
-    {
-      "hedyhli/outline.nvim",
-      config = function()
-        -- Example mapping to toggle outline
-        vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
-        require("outline").setup({
-          -- Your setup opts here (leave empty to use defaults)
-        })
-      end,
-    },
+  },
+  {
+    "hedyhli/outline.nvim",
+    config = function()
+      -- Example mapping to toggle outline
+      vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+      require("outline").setup({
+        -- Your setup opts here (leave empty to use defaults)
+      })
+    end,
   },
 }
