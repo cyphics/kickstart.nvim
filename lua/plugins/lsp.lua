@@ -98,40 +98,41 @@ return {
           basedpyright = {
             settings = {
               basedpyright = {
-                -- disableOrganizeImports = true,
+                disableOrganizeImports = true, -- let Ruff handle this
                 analysis = {
-                  diagnosticSeverityOverrides = {
-                    reportUnusedImport = "none",
-                  },
+                  typeCheckingMode = "basic",
+                  -- diagnosticSeverityOverrides = {
+                  --   reportUnusedImport = "none",
+                  -- },
                 },
               },
             },
           },
-          ruff = {
-            cmd_env = { RUFF_TRACE = "messages" },
-            init_options = {
-              settings = {
-                logLevel = "error",
-                args = {
-                  "--ignore",
-                  "F821",
-                  "--ignore",
-                  "E402",
-                  "--ignore",
-                  "E722",
-                  "--ignore",
-                  "E712",
-                },
-              },
-            },
-            keys = {
-              {
-                "<leader>co",
-                LazyVim.lsp.action["source.organizeImports"],
-                desc = "Organize Imports",
-              },
-            },
-          },
+          -- ruff = {
+          --   cmd_env = { RUFF_TRACE = "messages" },
+          --   init_options = {
+          --     settings = {
+          --       logLevel = "error",
+          --       args = {
+          --         "--ignore",
+          --         "F821",
+          --         "--ignore",
+          --         "E402",
+          --         "--ignore",
+          --         "E722",
+          --         "--ignore",
+          --         "E712",
+          --       },
+          --     },
+          --   },
+          --   -- keys = {
+          --   --   {
+          --   --     "<leader>co",
+          --   --     LazyVim.lsp.action["source.organizeImports"],
+          --   --     desc = "Organize Imports",
+          --   --   },
+          --   -- },
+          -- },
           ruff_lsp = {
             keys = {
               {
