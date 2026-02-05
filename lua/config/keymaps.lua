@@ -44,4 +44,3 @@ vim.keymap.set("n", "<C-Right>", "<cmd>horizontal resize +2<cr>") -- make the wi
 vim.keymap.set("n", "<C-Left>", "<cmd>horizontal resize -2<cr>") -- make the window smaller horizontally by pressing shift and -
 
 vim.keymap.set("v", "<leader>p", "_dp")
-vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
