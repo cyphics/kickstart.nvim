@@ -12,23 +12,21 @@
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
-
-
-vim.api.nvim_create_autocmd('Filetype', {
-  pattern = { 'html', 'shtml', 'htm' },
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = { "html", "shtml", "htm" },
   callback = function()
     vim.lsp.start {
-      name = 'superhtml',
-      cmd = { 'superhtml', 'lsp' },
-      root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+      name = "superhtml",
+      cmd = { "superhtml", "lsp" },
+      root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
     }
   end,
 })

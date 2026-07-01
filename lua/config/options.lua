@@ -81,6 +81,10 @@ vim.opt.scrolloff = 10
 
 -- LSP Server to use for Python.
 -- Set to "basedpyright" to use basedpyright instead of pyright.
-vim.g.lazyvim_python_lsp = "pyright"
+vim.g.lazyvim_python_lsp = "basedpyright"
 
 vim.g.autoformat = false
+
+-- Zig formatting (moved here from keymaps.lua — these are options, not keymaps)
+vim.g.zig_fmt_parse_errors = 0
+vim.g.zig_fmt_autosave = 0

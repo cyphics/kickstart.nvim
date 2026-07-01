@@ -32,8 +32,6 @@ vim.keymap.set("n", "<C-a>", "^", { remap = true, desc = "Go to beginning of lin
 vim.keymap.set("n", "<C-e>", "$", { remap = true, desc = "Go to end of line" })
 
 -- Resizing
-vim.g.zig_fmt_parse_errors = 0
-vim.g.zig_fmt_autosave = 0
 vim.keymap.set("n", "<C-M-h>", "<cmd>vertical resize +5<cr>") -- make the window biger vertically
 vim.keymap.set("n", "<C-M-l>", "<cmd>vertical resize -5<cr>") -- make the window smaller vertically
 vim.keymap.set("n", "<C-M-k>", "<cmd>horizontal resize +2<cr>") -- make the window bigger horizontally by pressing shift and =
@@ -43,4 +41,4 @@ vim.keymap.set("n", "<C-Down>", "<cmd>vertical resize -5<cr>") -- make the windo
 vim.keymap.set("n", "<C-Right>", "<cmd>horizontal resize +2<cr>") -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "<C-Left>", "<cmd>horizontal resize -2<cr>") -- make the window smaller horizontally by pressing shift and -
 
-vim.keymap.set("v", "<leader>p", "_dp")
+vim.keymap.set("v", "<leader>p", "_dp", { desc = "Paste without overwriting register" })
