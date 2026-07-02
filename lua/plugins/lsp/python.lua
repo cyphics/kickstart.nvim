@@ -36,6 +36,7 @@ return {
                 "F841", -- unused imports/var
                 "F821", -- undefined name
                 "SIM117", -- use single with statement
+                "E501", -- lines too long
               },
             },
           },

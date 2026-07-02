@@ -93,6 +93,13 @@ return {
       end,
       desc = "Goto Symbol (Workspace)",
     },
+    {
+      "<leader>/",
+      function()
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown())
+      end,
+      desc = "Fuzzy search in current buffer",
+    }
   },
   opts = function()
     local actions = require "telescope.actions"

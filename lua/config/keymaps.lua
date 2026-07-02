@@ -42,3 +42,14 @@ vim.keymap.set("n", "<C-Right>", "<cmd>horizontal resize +2<cr>") -- make the wi
 vim.keymap.set("n", "<C-Left>", "<cmd>horizontal resize -2<cr>") -- make the window smaller horizontally by pressing shift and -
 
 vim.keymap.set("v", "<leader>p", "_dp", { desc = "Paste without overwriting register" })
+
+local is_maximized = false
+vim.keymap.set("n", "<leader>wm", function()
+  if is_maximized then
+    vim.cmd "wincmd =" -- retour à une taille équilibrée
+  else
+    vim.cmd "wincmd _" -- max hauteur
+    vim.cmd "wincmd |" -- max largeur
+  end
+  is_maximized = not is_maximized
+end, { desc = "Toggle maximize window" })
