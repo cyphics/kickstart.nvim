@@ -36,8 +36,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black", "ruff" },
-        -- python = { "ruff" },
+        python = { "autopep8" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -45,10 +44,24 @@ return {
         javascriptreact = { "prettierd", "prettier", stop_after_first = true },
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       },
+      formatters = {
+        autopep8 = {
+          prepend_args = {
+            "--ignore",
+            "E221,E222,E241,E271,E272", -- espaces d'alignement autour de = , : et mots-clés — non touchés
+          }
+        }
+      }
       -- format_on_save = {
       --   timeout_ms = 3000,
       --   lsp_fallback = true,
       -- },
     },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "autopep8" })
+    end,
   },
 }
