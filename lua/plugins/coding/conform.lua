@@ -1,6 +1,4 @@
 return {
-  { "beautifier/js-beautify" },
-  { "PHP-CS-Fixer/PHP-CS-Fixer" },
   {
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
@@ -34,7 +32,10 @@ return {
       --   }
       -- end,
       formatters_by_ft = {
-        lua = { "stylua" },
+        html = { "prettierd", "prettier", stop_after_first=true},
+        json = { "prettierd", "prettier", stop_after_first = true },
+        jsonc = { "prettierd", "prettier", stop_after_first = true },
+        -- lua = { "stylua" },
         -- Conform can also run multiple formatters sequentially
         python = { "autopep8" },
         --
@@ -49,19 +50,13 @@ return {
           prepend_args = {
             "--ignore",
             "E221,E222,E241,E271,E272", -- espaces d'alignement autour de = , : et mots-clés — non touchés
-          }
-        }
-      }
+          },
+        },
+      },
       -- format_on_save = {
       --   timeout_ms = 3000,
       --   lsp_fallback = true,
       -- },
     },
-  },
-  {
-    "mason-org/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "autopep8" })
-    end,
   },
 }

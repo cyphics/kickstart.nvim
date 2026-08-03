@@ -30,3 +30,14 @@ vim.api.nvim_create_autocmd("Filetype", {
     }
   end,
 })
+
+-- lua/config/autocmds.lua
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.expandtab = false -- vraies tabs (requis par gofmt, sinon il les reconvertit à chaque save)
+    vim.opt_local.tabstop = 4 -- largeur d'affichage d'une tab = 4 colonnes
+    vim.opt_local.shiftwidth = 4 -- indentation (<<, >>, autoindent) alignée sur la même largeur
+    vim.opt_local.softtabstop = 4 -- la touche Tab se comporte comme 4 colonnes
+  end,
+})

@@ -15,6 +15,9 @@ return {
     },
     autoformat = false,
     servers = {
+      twiggy_language_server = {
+        endabled = true
+      },
       ["*"] = {
         keys = {
           {

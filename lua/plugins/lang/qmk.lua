@@ -1,7 +1,7 @@
 return {
   "codethread/qmk.nvim",
   opts = {
-    name = "LAYOUT_planck_grid", -- identify your layout name
+    name = "LAYOUT_split_3x6_3", -- identify your layout name
     comment_preview = {
       keymap_overrides = {
         KC_BTN1 = "R-Clic",
@@ -22,11 +22,11 @@ return {
         CEDILL = "ç",
       },
     },
-    layout = { -- create a visual representation of your final layout
-      "x x x x x x x x x x x x",
-      "x x x x x x x x x x x x",
-      "x x x x x x x x x x x x",
-      "x x x x x x x x x x x x",
-    },
+    layout = {
+       "x x x x x x x x x x x x",
+       "x x x x x x x x x x x x",
+       "x x x x x x x x x x x x",
+       "_ _ _ x x x x x x _ _ _",
+    }
   },
 }

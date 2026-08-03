@@ -88,3 +88,6 @@ vim.g.autoformat = false
 -- Zig formatting (moved here from keymaps.lua — these are options, not keymaps)
 vim.g.zig_fmt_parse_errors = 0
 vim.g.zig_fmt_autosave = 0
+
+-- change le LSP php
+vim.g.lazyvim_php_lsp = "intelephense"

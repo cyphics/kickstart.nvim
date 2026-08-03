@@ -99,5 +99,12 @@ return {
         console = "integratedTerminal",
       },
     }, project_config)
+    vim.fn.sign_define("DapBreakpoint", {
+      text = "●",
+      texthl = "DapBreakpointSign",
+      linehl = "",
+      numhl = "",
+    })
+    vim.api.nvim_set_hl(0, "DapBreakpointSign", { fg = "#ff0000" }) -- rouge
   end,
 }
