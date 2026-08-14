@@ -1,7 +1,7 @@
 -- lua/plugins/coding/run.lua
 return {
   "akinsho/toggleterm.nvim",
-    init = function()
+  init = function()
     -- Doit être réglé AVANT que toggleterm.setup() tourne (via opts),
     -- d'où l'utilisation de `init` plutôt que juste `opts`.
     if vim.fn.has("win32") == 1 then
