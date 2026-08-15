@@ -53,3 +53,27 @@ vim.keymap.set("n", "<leader>wm", function()
   end
   is_maximized = not is_maximized
 end, { desc = "Toggle maximize window" })
+
+vim.api.nvim_create_user_command("LspLog", function()
+  vim.cmd("edit " .. vim.lsp.get_log_path())
+end, {})
+
+-- lua/config/keymaps.lua (à côté de la commande LspLog qu'on vient d'ajouter)
+vim.api.nvim_create_user_command("LspInfo", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #clients == 0 then
+    vim.notify("Aucun client LSP attaché à ce buffer", vim.log.levels.WARN)
+    return
+  end
+
+  local lines = { "LSP clients attachés à ce buffer :", "" }
+  for _, client in ipairs(clients) do
+    table.insert(lines, string.format("• %s (id: %d)", client.name, client.id))
+    table.insert(lines, string.format("  root_dir: %s", client.root_dir or "?"))
+    table.insert(lines, string.format("  filetypes: %s", table.concat(client.config.filetypes or {}, ", ")))
+    table.insert(lines, string.format("  cmd: %s", table.concat(client.config.cmd or {}, " ")))
+    table.insert(lines, "")
+  end
+
+  vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, { title = "LspInfo" })
+end, {})

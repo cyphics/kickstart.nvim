@@ -4,6 +4,7 @@
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.php",
     "lazyvim.plugins.extras.lang.twig",
+    "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.go"
   ],
   "install_version": 8,

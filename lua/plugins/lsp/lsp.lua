@@ -16,15 +16,7 @@ return {
     autoformat = false,
     servers = {
       twiggy_language_server = {
-        endabled = true,
-        root_markers = { ' composer.json' },
-        settings = {
-          twiggy = {
-            framework = 'symfony',
-            phpExecutable = '/usr/bin/php',
-            symfonyConsolePath = 'bin/console',
-          },
-        },
+        enabled = true,
       },
       ["*"] = {
         keys = {
