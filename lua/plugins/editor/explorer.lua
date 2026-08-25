@@ -5,7 +5,7 @@ return {
     explorer = { enabled = true },
   },
   keys = {
-    { "<leader>e", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
-    { "\\", function() Snacks.explorer() end, desc = "Explorer (reveal)" },
+    -- { "<leader>e", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
+    { "\\", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
   },
 }

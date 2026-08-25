@@ -65,15 +65,26 @@ vim.api.nvim_create_user_command("LspInfo", function()
     vim.notify("Aucun client LSP attaché à ce buffer", vim.log.levels.WARN)
     return
   end
-
   local lines = { "LSP clients attachés à ce buffer :", "" }
   for _, client in ipairs(clients) do
     table.insert(lines, string.format("• %s (id: %d)", client.name, client.id))
     table.insert(lines, string.format("  root_dir: %s", client.root_dir or "?"))
     table.insert(lines, string.format("  filetypes: %s", table.concat(client.config.filetypes or {}, ", ")))
-    table.insert(lines, string.format("  cmd: %s", table.concat(client.config.cmd or {}, " ")))
+
+    local cmd = client.config.cmd
+    local cmd_str
+    if type(cmd) == "table" then
+      cmd_str = table.concat(cmd, " ")
+    elseif type(cmd) == "function" then
+      cmd_str = "<résolu dynamiquement>"
+    else
+      cmd_str = "?"
+    end
+    table.insert(lines, string.format("  cmd: %s", cmd_str))
     table.insert(lines, "")
   end
-
   vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, { title = "LspInfo" })
 end, {})
+
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
