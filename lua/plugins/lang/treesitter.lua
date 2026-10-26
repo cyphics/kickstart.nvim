@@ -6,6 +6,7 @@ return {
     folds = { enable = true },
     ensure_installed = {
       "bash",
+      "php",
       "twig",
       "c",
       "diff",
