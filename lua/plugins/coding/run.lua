@@ -14,7 +14,14 @@ return {
       vim.opt.shellxquote = ""
     end
   end,
-  opts = {},
+  opts = {
+    direction = 'vertical',
+    size = function(term)
+      if term.direction == 'vertical' then
+        return vim.o.columns * 0.4
+      end
+    end,
+  },
   keys = {
     {
       "<leader>rr",
