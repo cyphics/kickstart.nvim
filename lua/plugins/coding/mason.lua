@@ -7,6 +7,8 @@ return {
         "prettier",
         "prettierd",
         "twigcs",
+        "phpcs",
+        "php-cs-fixer",
       })
     end,
   },
