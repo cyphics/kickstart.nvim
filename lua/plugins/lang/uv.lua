@@ -6,7 +6,7 @@ return {
   opts = {
     picker_integration = true,
     keymaps = {
-      prefix = "<leader>m", -- Main prefix for uv commands
+      --prefix = "<leader>m", -- Main prefix for uv commands
       commands = true, -- Show uv commands menu (<leader>x)
       run_file = true, -- Run current file (<leader>xr)
       run_selection = true, -- Run selected code (<leader>xs)

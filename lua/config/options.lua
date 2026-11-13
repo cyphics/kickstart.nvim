@@ -92,4 +92,6 @@ vim.g.zig_fmt_autosave = 0
 -- change le LSP php
 vim.g.lazyvim_php_lsp = "intelephense"
 
-vim.lsp.set_log_level('warn')
+vim.lsp.set_log_level "warn"
+
+vim.g.root_spec = { { ".root", ".git" }, "lsp", { "pyproject.toml" }, "cmd" }

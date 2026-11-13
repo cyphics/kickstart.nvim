@@ -38,6 +38,12 @@ return {
       end,
       desc = "Float variables (Scopes)",
     },
+    {
+      "<leader>dr", function() require("dap").restart() end,  desc = "Restart session" ,
+    },
+    {
+      "<leader>dR", function() require("dap").repl() end,  desc = "Toggle REPL" ,
+    }
   },
   config = function()
     local dap, dapui = require("dap"), require("dapui")

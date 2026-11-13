@@ -15,6 +15,13 @@ return {
             disableOrganizeImports = false, -- let Ruff handle this
             analysis = {
               typeCheckingMode = "basic",
+              diagnosticSeverityOverrides = {
+                  reportUnknownVariableType = false,
+                  reportUnknownMemberType = "none",
+                  reportUnknownArgumentType = "none",
+                  reportUnknownParameterType = false,
+                  reportUnknownLambdaType = "none",
+              },
             },
           },
         },

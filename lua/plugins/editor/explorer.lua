@@ -6,6 +6,6 @@ return {
   },
   keys = {
     -- { "<leader>e", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
-    { "\\", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
+    -- { "\\", function() Snacks.explorer() end, desc = "Explorer (toggle)" },
   },
 }
